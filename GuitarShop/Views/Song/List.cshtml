@@ -1,0 +1,44 @@
+﻿@model SongListViewModel
+@{
+    ViewBag.Title = "Song List";
+}
+
+<div class="row">
+    <div class="col-sm-2">
+            <a asp-controller="Song" asp-action="List" asp-route-id="All" 
+                class="list-group-item 
+                @(ViewBag.SelectedCategoryName == "All" ? "active" : "")">
+                All
+            </a>
+
+            @foreach (Category c in Model.Categories)
+            {
+
+                    <a asp-controller="Song" asp-action="List" asp-route-id="@c.Name" 
+                       class="list-group-item
+                             @Model.CheckActiveCategory(c.Name)">
+                        @c.Name
+                    </a>
+
+            }
+    </div>
+
+    <div class="col-sm-10">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Artist</th>
+            </thead>
+            <tbody>
+                @foreach (var song in Model.Songs)
+                {
+                    <tr>
+                        <td>@song.Name</td>
+                        <td>@song.Artist</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

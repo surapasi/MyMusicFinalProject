@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h1>Welcome to My Music Page :)</h1>
+
+<p>Listening to music is one of my favorite hobbies</p>
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="list-group">
+            <a asp-controller="Song" asp-action="List"
+               class="list-group-item">Check out my favorite music</a>
+            <a asp-controller="Home" asp-action="About"
+               class="list-group-item">About me</a>
+        </div>
+    </div>
+</div>
